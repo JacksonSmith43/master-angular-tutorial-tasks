@@ -12,14 +12,18 @@ import { Task, TaskStatus } from '../../task.model';
 })
 export class TaskItemComponent {
   task = input.required<Task>();
+
   taskStatus = computed(() => {
     switch (this.task().status) {
       case 'OPEN':
         return 'Open';
+
       case 'IN_PROGRESS':
         return 'Working on it';
+
       case 'DONE':
         return 'Completed';
+
       default:
         return 'Open';
     }
@@ -32,13 +36,16 @@ export class TaskItemComponent {
       case 'open':
         newStatus = 'OPEN';
         break;
-      case 'in-progress':
+     
+        case 'in-progress':
         newStatus = 'IN_PROGRESS';
         break;
-      case 'done':
+     
+        case 'done':
         newStatus = 'DONE';
         break;
-      default:
+     
+        default:
         break;
     }
   }

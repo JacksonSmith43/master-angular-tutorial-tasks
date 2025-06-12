@@ -6,7 +6,9 @@ import { Task } from "./task.model";
 
 })
 export class TasksService {
-    tasks = signal<Task[]>([]); // tasks should have the shape of Task. That is the type. 
+    private tasks = signal<Task[]>([]); // tasks should have the shape of Task. That is the type. 
+
+    allTasks = this.tasks.asReadonly(); // asReadonly is a read-only Signal.
 
     addTask(taskData: { title: string; description: string }) {
         const newTask: Task = {
