@@ -1,5 +1,6 @@
-import { Component, ElementRef, viewChild } from '@angular/core';
+import { Component, ElementRef, viewChild, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TasksServiceToken } from '../../../main';
 import { TasksService } from '../tasks.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { TasksService } from '../tasks.service';
   styleUrl: './new-task.component.css',
 })
 
+
 export class NewTaskComponent {
   private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
 
-  constructor(private tasksService: TasksService) {
+  constructor(@Inject(TasksServiceToken) private tasksService: TasksService) { // Injecting the TasksService using the token. 
   }
 
   onAddTask(title: string, description: string) {
