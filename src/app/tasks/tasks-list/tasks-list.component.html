@@ -3,17 +3,18 @@
   <p>
     <select (change)="onChangeTasksFilter(filter.value)" #filter>
       <option value="all">All</option>
-      <option value="open">Open</option>
-      <option value="in-progress">In-Progress</option>
-      <option value="done">Completed</option>
+
+      @for(i of taskStatusOptions; track i.value){
+      <option [value]="i.value">{{i.text}}</option>
+      }
     </select>
   </p>
 </header>
 
 <ul>
   @for (task of tasks(); track task.id) {
-    <li>
-      <app-task-item [task]="task" />
-    </li>
+  <li>
+    <app-task-item [task]="task" />
+  </li>
   }
 </ul>
