@@ -8,7 +8,6 @@ import { TasksService } from './tasks.service';
   selector: 'app-tasks',
   standalone: true,
   templateUrl: './tasks.component.html',
-  imports: [NewTaskComponent, TasksListComponent],
-  providers: [TasksService] // Element injector. 
+  imports: [NewTaskComponent, TasksListComponent]
 })
 export class TasksComponent { }
